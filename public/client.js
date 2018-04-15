@@ -27,6 +27,6 @@ $(function() {
     })
   })
   
-  setTimeout(() => {$(".loader").fadeOut(300)}, 1000);
+  setTimeout(() => {$(".loader").fadeOut(300)}, 700);
 
 })

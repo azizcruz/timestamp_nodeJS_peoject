@@ -35,6 +35,7 @@ form {
   width: 100%;
   max-width: 340px;
   border-radius: 3px;
+  height: 150px;
 }
 
 input {
