@@ -6,7 +6,13 @@
 
 $(function() {
   
+  $.get('/date', function(date) {
+      console.log(date)
+  })
   
+  $("button").on("click", () => {
+    location.reload()
+  })
   
   $('form').submit(function(event) {
     event.preventDefault()
@@ -16,6 +22,8 @@ $(function() {
     })
   })
   
-  
+  $(".loader").on("load", () => {
+    $(this).hide();
+  })
 
 })
