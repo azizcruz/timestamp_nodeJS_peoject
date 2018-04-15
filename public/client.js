@@ -22,8 +22,6 @@ $(function() {
     })
   })
   
-  $(".loader").on("load", () => {
-    $(this).hide();
-  })
+  $(".loader").load().hide()
 
 })
