@@ -19,8 +19,8 @@ app.get("/", (request, response) => {
 })
 
 // could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/date?", (request, response) => {
-  var date = request.params.date;
+app.post("/date", (request, response) => {
+  var date = request.query;
   console.log(date);
   response.sendStatus(200)
 })
