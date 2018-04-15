@@ -80,3 +80,8 @@ footer > a {
 .nicejob {
   text-decoration: line-through;
 }
+
+.center {
+  margin: auto;
+  width: 30%;
+}
