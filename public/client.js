@@ -6,11 +6,7 @@
 
 $(function() {
   
-  $("button").on("click", () => {
-    $.get('/date', function(date) {
-      console.log(date)
-  })
-  })
+  
   
   $('form').submit(function(event) {
     event.preventDefault()
@@ -19,5 +15,7 @@ $(function() {
       
     })
   })
+  
+  
 
 })
