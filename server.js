@@ -19,7 +19,7 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + '/views/index.html')
 })
 
-// Get the date data to client.
+// Get the new date data to client.
 app.get("/date", (request, response) => {
   response.send(date)
 })

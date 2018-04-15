@@ -6,15 +6,17 @@
 
 $(function() {
   
-  $.get('/date', function(date) {
-    console.log(date)
+  $("button").on("click", () => {
+    $.get('/date', function(date) {
+      console.log(date)
   })
-
+  })
+  
   $('form').submit(function(event) {
     event.preventDefault()
     var date = $('input').val()
     $.post('/date?' + $.param({date: date}), function() {
-      console.log('Sent!!')
+      
     })
   })
 
