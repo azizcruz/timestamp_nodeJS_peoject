@@ -5,6 +5,7 @@
 const express = require('express')
 const app = express()
 var chrono = require('chrono-node')
+var date = null;
 
 
 // we've started you off with Express, 
@@ -18,13 +19,14 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + '/views/index.html')
 })
 
+// Get the date data to client.
 app.get("/date", (request, response) => {
-  console.log(request.params);
+  response.send(date)
 })
 
-// could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
+// Post the date data from client.
 app.post("/date", (request, response) => {
-  var date = request.query;
+  date = request.query;
 })
 
 // listen for requests :)

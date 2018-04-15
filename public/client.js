@@ -6,8 +6,8 @@
 
 $(function() {
   
-  $.get('/date', function(dreams) {
-    console.log('get date')
+  $.get('/date', function(date) {
+    console.log(date)
   })
 
   $('form').submit(function(event) {
