@@ -18,11 +18,13 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + '/views/index.html')
 })
 
+app.get("/date", (request, response) => {
+  console.log(request.params);
+})
+
 // could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
 app.post("/date", (request, response) => {
   var date = request.query;
-  console.log(date);
-  response.sendStatus(200)
 })
 
 // listen for requests :)
