@@ -7,7 +7,12 @@
 $(function() {
   
   $.get('/date', function(date) {
-      console.log(date)
+      if(date.date.length === 0) {
+        
+      } else {
+       console.log(date)
+       $("#output").text("Check console")
+      }
   })
   
   $("button").on("click", () => {
@@ -22,6 +27,6 @@ $(function() {
     })
   })
   
-  $(".loader").load().hide()
+  setTimeout(() => {$(".loader").fadeOut(300)}, 1000);
 
 })
