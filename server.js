@@ -6,7 +6,6 @@ const express = require('express')
 const app = express()
 var chrono = require('chrono-node')
 
-console.log(chrono.parseDate('December 15, 2015'))
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -20,7 +19,7 @@ app.get("/", (request, response) => {
 })
 
 // could also use the POST body instead of query string: http://expressjs.com/en/api.html#req.body
-app.post("/date", (request, response) => {
+app.post("/date?", (request, response) => {
   var date = request.params.date;
   console.log(date);
   response.sendStatus(200)

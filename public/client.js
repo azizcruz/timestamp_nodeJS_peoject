@@ -7,7 +7,7 @@
 $(function() {
   
   $.get('/date', function(dreams) {
-    
+    console.log('get date')
   })
 
   $('form').submit(function(event) {
