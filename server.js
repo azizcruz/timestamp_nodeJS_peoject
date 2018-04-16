@@ -4,8 +4,6 @@
 // init project
 const express = require('express')
 const app = express()
-var chrono = require('chrono-node')
-var timestamp = require('unix-timestamp')
 var date = null;
 
 
