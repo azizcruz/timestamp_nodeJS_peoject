@@ -25,9 +25,9 @@ app.get("/date", (request, response) => {
 
 // Post the date data from client.
 app.post("/date", (request, response) => {
-  date = Number(request.query);
-  //var myDate = new(date)
-  console.log(date)
+  date = request.query.date;
+  var date1 = new Date(date)
+  console.log(date1.getMonth())
 })
 
 // listen for requests :)
