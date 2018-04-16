@@ -63,7 +63,7 @@ function convertTimestamp(timestamp) {
    return null; 
   }
     
-  if(timestamp.length > 12 && /[a-zA-Z]/g.test(timestamp.substr(0, 4)) === false) {
+  if(timestamp.length > 12 && /[a-zA-Z]/g.test(timestamp.substr(0, 7)) === false) {
        return null; 
   } 
   
