@@ -63,11 +63,11 @@ function convertTimestamp(timestamp) {
    return null; 
   }
     
-  if(timestamp.length > 12 && /[a-zA-Z]/g.test(timestamp.substr(0, 7)) === false) {
+  if(timestamp.length > 12 && /[a-zA-Z]/g.test(timestamp.substr(0, 2)) === false) {
        return null; 
   } 
   
-  if((timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) && /[a-zA-Z]/g.test(timestamp.substr(0, 4)) === true) {
+  if((timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) && /[a-zA-Z]/g.test(timestamp.substr(0, 2)) === true) {
      return null; 
   }
     
@@ -76,7 +76,7 @@ function convertTimestamp(timestamp) {
   }
 // Security Code.
     
-  if(/[0-9]/.test(timestamp.substr(0, 7))) {
+  if(/[0-9]/.test(timestamp.substr(0, 2))) {
       if(timestamp.length > 12) {
        return null; 
       }

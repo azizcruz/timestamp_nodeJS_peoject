@@ -36,6 +36,7 @@ form {
   max-width: 340px;
   border-radius: 3px;
   height: 150px;
+  box-shadow: 3px 3px #e1bee7;
 }
 
 input {
@@ -105,5 +106,10 @@ footer > a {
 
 .output {
    text-align: center;
-   color: green;
+   color: #e1bee7;
+   font-style: italic;
+}
+
+main > p {
+ color: #f48fb1; 
 }
