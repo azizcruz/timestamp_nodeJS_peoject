@@ -27,6 +27,7 @@ app.get("/date", (request, response) => {
 // Post the date data from client.
 app.post("/date", (request, response) => {
   date = request.query;
+  console.log(chrono.parseDate(date))
 })
 
 // listen for requests :)

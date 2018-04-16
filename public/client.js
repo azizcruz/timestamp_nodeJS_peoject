@@ -7,12 +7,12 @@
 $(function() {
   
   $.get('/date', function(date) {
-      if(date.date.length === 0) {
+//       if(date.date.length === 0) {
         
-      } else {
+//       } else {
        console.log(date)
        $("#output").text("Check console")
-      }
+      // }
   })
   
   $("button").on("click", () => {
