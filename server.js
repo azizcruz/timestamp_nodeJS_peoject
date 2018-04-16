@@ -59,13 +59,28 @@ app.post("/date", (request, response) => {
   if(/[0-9]/.test(timestamp.substr(0, 7))) {
           return timestamp;
         } else {
+          // Handle if the entered date is a natural date.
           var months = {
             "January": "01",
             "Februray": "02",
             "March":"03",
-            "April"
+            "April":"04",
+            "May":"05",
+            "June":"06",
+            "July":"07",
+            "August":"08",
+            "September":"09",
+            "October":"10",
+            "November":"11",
+            "December":"12"
           }
+          // Make the enetered string of date as an array.
           var dateArray = timestamp.split(" ");
+          // Get month number from natural date.
+          var mm = months[dateArray[0]];
+          //  Get the day of the month.
+          
+          
           
         }
   }
