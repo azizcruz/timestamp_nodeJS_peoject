@@ -56,10 +56,17 @@ app.post("/date", (request, response) => {
   timestamp = request.query.date;
   // Function to check the timestamp if its unix or natural date
   var getTimestamp = () => {
-  if(/[0-9]/.test(timestamp.substr(0, 10))) {
+  if(/[0-9]/.test(timestamp.substr(0, 7))) {
           return timestamp;
         } else {
-          if()
+          var months = {
+            "January": "01",
+            "Februray": "02",
+            "March":"03",
+            "April"
+          }
+          var dateArray = timestamp.split(" ");
+          
         }
   }
   date = {
