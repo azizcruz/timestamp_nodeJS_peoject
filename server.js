@@ -10,6 +10,7 @@ var timestamp = null;
 // Function to convert from timestamp to natural date.
 function convertTimestamp(timestamp) {
   
+// Security Code.
   if(timestamp === "" || timestamp === " ") {
    return null; 
   }
@@ -18,9 +19,14 @@ function convertTimestamp(timestamp) {
        return null; 
   } 
   
-  if(timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) {
+  if((timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) && /[a-zA-Z]/g.test(timestamp.substr(0, 4)) === true) {
      return null; 
   }
+  
+  if(timestamp.indexOf("-") > -1) {
+     return null;
+  }
+// Security Code.
   
    if(/[0-9]/.test(timestamp.substr(0, 3))) {
       if(timestamp.length > 12) {
@@ -51,7 +57,8 @@ function convertTimestamp(timestamp) {
 
 // Function to check the timestamp if its unix or natural date
   var getTimestamp = (timestamp) => {  
-  
+    
+// Security Code.
   if(timestamp === "" || timestamp === " ") {
    return null; 
   }
@@ -60,9 +67,14 @@ function convertTimestamp(timestamp) {
        return null; 
   } 
   
-  if(timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) {
+  if((timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) && /[a-zA-Z]/g.test(timestamp.substr(0, 4)) === true) {
      return null; 
   }
+    
+  if(timestamp.indexOf("-") > -1) {
+     return null; 
+  }
+// Security Code.
     
   if(/[0-9]/.test(timestamp.substr(0, 7))) {
       if(timestamp.length > 12) {
