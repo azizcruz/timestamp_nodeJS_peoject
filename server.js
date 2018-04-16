@@ -27,11 +27,9 @@ function convertTimestamp(timestamp) {
 	
 	// ie: 2013-02-18, 8:35 AM	
 	time = mm + " " + dd + ", " + yyyy;
-		
 	return time;
 } else {
-  
-  
+  return timestamp;
 }
   
 }
@@ -61,7 +59,7 @@ app.post("/date", (request, response) => {
   if(/[0-9]/.test(timestamp.substr(0, 3))) {
           return timestamp;
         } else {
-          return "not valid"
+          
         }
   }
   date = {
