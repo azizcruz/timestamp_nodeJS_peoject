@@ -34,27 +34,7 @@ function convertTimestamp(timestamp) {
   
 }
 
-
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'))
-
-// http://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + '/views/index.html')
-})
-
-// Get the new date data to client.
-app.get("/date", (request, response) => {
-  response.send(date)
-})
-
-// Post the date data from client.
-app.post("/date", (request, response) => {
-  timestamp = request.query.date;
-  // Function to check the timestamp if its unix or natural date
+// Function to check the timestamp if its unix or natural date
   var getTimestamp = () => {
   if(/[0-9]/.test(timestamp.substr(0, 7))) {
           return timestamp;
@@ -76,14 +56,40 @@ app.post("/date", (request, response) => {
           }
           // Make the enetered string of date as an array.
           var dateArray = timestamp.split(" ");
-          // Get month number from natural date.
-          var mm = months[dateArray[0]];
-          //  Get the day of the month.
           
+          var mm = months[dateArray[0]]; // Get month number from natural date.
+          var dd = dateArray[1].substr(0, 2); // Get the day of the month.
+          var yyyy = dateArray[2]; // Get the year of the date.
+          var date = mm + "-" + dd + "-" + yyyy // concatinate the date new values.
+              date = new Date(date).getTime() / 1000 // return the timestamp of the date.
+              
+          
+          return date; 
           
           
         }
   }
+
+
+// we've started you off with Express, 
+// but feel free to use whatever libs or frameworks you'd like through `package.json`.
+
+// http://expressjs.com/en/starter/static-files.html
+app.use(express.static('public'))
+
+// http://expressjs.com/en/starter/basic-routing.html
+app.get("/", (request, response) => {
+  response.sendFile(__dirname + '/views/index.html')
+})
+
+// Get the new date data to client.
+app.get("/date", (request, response) => {
+  response.send(date)
+})
+
+// Post the date data from client.
+app.post("/date", (request, response) => {
+  timestamp = request.query.date;
   date = {
       "unix": getTimestamp() ,
       "natural": convertTimestamp(timestamp)
