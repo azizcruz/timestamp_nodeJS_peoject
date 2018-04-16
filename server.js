@@ -5,6 +5,7 @@
 const express = require('express')
 const app = express()
 var chrono = require('chrono-node')
+var timestamp = require('unix-timestamp')
 var date = null;
 
 
@@ -26,8 +27,7 @@ app.get("/date", (request, response) => {
 
 // Post the date data from client.
 app.post("/date", (request, response) => {
-  date = request.query;
-  console.log(chrono.parseDate(date))
+  date = Number(request.query);
 })
 
 // listen for requests :)
