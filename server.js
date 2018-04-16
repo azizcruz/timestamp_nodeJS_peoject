@@ -28,6 +28,8 @@ app.get("/date", (request, response) => {
 // Post the date data from client.
 app.post("/date", (request, response) => {
   date = Number(request.query);
+  //var myDate = new(date)
+  console.log(date)
 })
 
 // listen for requests :)
