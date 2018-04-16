@@ -6,6 +6,28 @@ const express = require('express')
 const app = express()
 var date = null;
 
+// Function to convert from timestamp to natural date.
+function convertTimestamp(timestamp) {
+  var d = new Date(timestamp * 1000),	// Convert the passed timestamp to milliseconds
+		yyyy = d.getFullYear(),
+		mm = ('0' + (d.getMonth() + 1)).slice(-2),	// Months are zero based. Add leading 0.
+		dd = ('0' + d.getDate()).slice(-2),			// Add leading 0.
+		min = ('0' + d.getMinutes()).slice(-2),		// Add leading 0.
+		time;
+			
+  
+  // Get month name.
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+  ];
+  mm = monthNames[d.getMonth()];
+	
+	// ie: 2013-02-18, 8:35 AM	
+	time = mm + " " + dd + ", " + yyyy;
+		
+	return time;
+}
+
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -26,8 +48,9 @@ app.get("/date", (request, response) => {
 // Post the date data from client.
 app.post("/date", (request, response) => {
   date = request.query.date;
-  var date1 = new Date(date)
-  console.log(date1.getMonth())
+  date = {
+      "unix": ""
+  }
 })
 
 // listen for requests :)
