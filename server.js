@@ -10,6 +10,14 @@ var timestamp = null;
 // Function to convert from timestamp to natural date.
 function convertTimestamp(timestamp) {
   
+  if(timestamp === "" || timestamp === " ") {
+   return null; 
+  }
+  
+  if(timestamp.length > 12) {
+       return null; 
+  }
+  
    if(/[0-9]/.test(timestamp.substr(0, 3))) {
   var d = new Date(timestamp * 1000),	// Convert the passed timestamp to milliseconds
 		yyyy = d.getFullYear(),
@@ -35,8 +43,16 @@ function convertTimestamp(timestamp) {
 }
 
 // Function to check the timestamp if its unix or natural date
-  var getTimestamp = () => {
+  var getTimestamp = (timestamp) => {  
+  
+  if(timestamp === "" || timestamp === " ") {
+   return null; 
+  }
+    
   if(/[0-9]/.test(timestamp.substr(0, 7))) {
+      if(timestamp.length > 12) {
+       return null; 
+      }
           return timestamp;
         } else {
           // Handle if the entered date is a natural date.
@@ -91,7 +107,7 @@ app.get("/date", (request, response) => {
 app.post("/date", (request, response) => {
   timestamp = request.query.date;
   date = {
-      "unix": getTimestamp() ,
+      "unix": getTimestamp(timestamp) ,
       "natural": convertTimestamp(timestamp)
   }
   

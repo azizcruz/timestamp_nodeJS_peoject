@@ -8,7 +8,8 @@ $(function() {
   
   $.get('/date', function(date) {
       if(date.date === {}) {
-        
+        date = {}
+        console.log()
       } else {
        console.log(date)
        $("#output").text("Check console")
