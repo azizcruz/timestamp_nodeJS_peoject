@@ -14,7 +14,7 @@ function convertTimestamp(timestamp) {
    return null; 
   }
   
-  if(timestamp.length > 12 && /[a-zA-Z]/.test(timestamp.substr(0, 4)) === false) {
+  if(timestamp.length > 13 && /[a-zA-Z]/g.test(timestamp.substr(0, 4)) === false) {
        return null; 
   } 
   
@@ -23,7 +23,10 @@ function convertTimestamp(timestamp) {
   }
   
    if(/[0-9]/.test(timestamp.substr(0, 3))) {
-  var d = new Date(timestamp * 1000),	// Convert the passed timestamp to milliseconds
+      if(timestamp.length > 12) {
+       return null; 
+      }
+    var d = new Date(timestamp * 1000),	// Convert the passed timestamp to milliseconds
 		yyyy = d.getFullYear(),
 		mm = ('0' + (d.getMonth() + 1)).slice(-2),	// Months are zero based. Add leading 0.
 		dd = ('0' + d.getDate()).slice(-2),			// Add leading 0.
@@ -53,7 +56,7 @@ function convertTimestamp(timestamp) {
    return null; 
   }
     
-  if(timestamp.length > 12 && /[a-zA-Z]/.test(timestamp.substr(0, 4)) === false) {
+  if(timestamp.length > 12 && /[a-zA-Z]/g.test(timestamp.substr(0, 4)) === false) {
        return null; 
   } 
   
