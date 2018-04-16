@@ -5,6 +5,7 @@
 const express = require('express')
 const app = express()
 var date = null;
+var timestamp = null;
 
 // Function to convert from timestamp to natural date.
 function convertTimestamp(timestamp) {
@@ -47,9 +48,13 @@ app.get("/date", (request, response) => {
 
 // Post the date data from client.
 app.post("/date", (request, response) => {
-  date = request.query.date;
+  timestamp = request.query.date;
+  
   date = {
-      "unix": ""
+      "unix": () => {
+        if(time
+      },
+      "natural": convertTimestamp(timestamp)
   }
 })
 
