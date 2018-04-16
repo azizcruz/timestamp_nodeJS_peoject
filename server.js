@@ -50,16 +50,20 @@ app.get("/date", (request, response) => {
 app.post("/date", (request, response) => {
   timestamp = request.query.date;
   
-  date = {
-      "unix": () => {
-        if(timestamp.substr(0, 3)) {
+  // Function to check the timestamp if its unix or natural date
+  var checkDate = () => {
+  if(/[0-9]/.test(timestamp.substr(0, 3))) {
           return timestamp;
         } else {
-          console.log("not valid")
+          return "not valid"
         }
-      },
+  }
+  date = {
+      "unix": checkDate() ,
       "natural": convertTimestamp(timestamp)
   }
+  
+  console.log(date)
 })
 
 // listen for requests :)
