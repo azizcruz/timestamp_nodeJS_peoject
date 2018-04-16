@@ -14,8 +14,12 @@ function convertTimestamp(timestamp) {
    return null; 
   }
   
-  if(timestamp.length > 12) {
+  if(timestamp.length > 12 && /[a-zA-Z]/.test(timestamp.substr(0, 4)) === false) {
        return null; 
+  } 
+  
+  if(timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) {
+     return null; 
   }
   
    if(/[0-9]/.test(timestamp.substr(0, 3))) {
@@ -47,6 +51,14 @@ function convertTimestamp(timestamp) {
   
   if(timestamp === "" || timestamp === " ") {
    return null; 
+  }
+    
+  if(timestamp.length > 12 && /[a-zA-Z]/.test(timestamp.substr(0, 4)) === false) {
+       return null; 
+  } 
+  
+  if(timestamp.split(" ").length > 3 || timestamp.split(" ").length < 3) {
+     return null; 
   }
     
   if(/[0-9]/.test(timestamp.substr(0, 7))) {
