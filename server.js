@@ -52,7 +52,11 @@ app.post("/date", (request, response) => {
   
   date = {
       "unix": () => {
-        if(time
+        if(timestamp.substr(0, 3)) {
+          return timestamp;
+        } else {
+          console.log("not valid")
+        }
       },
       "natural": convertTimestamp(timestamp)
   }
