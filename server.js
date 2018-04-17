@@ -46,7 +46,7 @@ function convertTimestamp(timestamp) {
   ];
   mm = monthNames[d.getMonth()];
 	
-	// ie: 2013-02-18, 8:35 AM	
+	// ie: December 15, 2015	
 	time = mm + " " + dd + ", " + yyyy;
 	return time;
 } else {
